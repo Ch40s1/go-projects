@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>Hello, world!</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <meta name="description" content="" />
+
+        <link rel="icon" href="favicon.png" />
+    </head>
+
+    <body>
+        <section>
+            <h2>List</h2>
+            <div>
+                <ul>
+                    <li>List item 1</li>
+                    {{range .}}
+                    <li>
+                        {{.Title}} - {{if .Done}}Done{{else}}Not Done{{end}}
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+        </section>
+        <section>
+            <form>
+                <h2>Form section</h2>
+            </form>
+        </section>
+    </body>
+</html>

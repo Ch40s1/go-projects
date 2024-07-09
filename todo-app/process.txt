@@ -1,0 +1,8 @@
+1. serve "hello" from server
+    completed: used log, net/http,
+2. serve a html file
+    completed: using http.FileServer, http.Dir
+3. write a get request to display list
+    completed: using html/templates
+4. crud
+5. add styles
