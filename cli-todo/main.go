@@ -1,26 +1,64 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
 func main() {
 	// Initialize the status variable
 	status := true
-
+	taskList := []string{"mow lawn"}
 	// Use a for loop to simulate a while loop
 	for status {
-		fmt.Println("press 1 to continue")
-		fmt.Println("press 2 to exit")
+		fmt.Println("1. View Tasks")
+		fmt.Println("2. Create Task")
+		fmt.Println("3. Update Task")
+		fmt.Println("4. Delete Task")
+		fmt.Println("5. Exit")
 		var userAnswer int
 		fmt.Scanln(&userAnswer)
 
-		if userAnswer == 2 {
+		switch userAnswer {
+		case 1:
+			viewTasks(taskList)
+		case 2:
+			taskList = createTask(taskList)
+		case 3:
+			updateTask(taskList)
+		case 4:
+			deleteTask(taskList)
+		case 5:
 			status = false
-		} else if userAnswer == 1 {
-			fmt.Println("hello!")
-		} else {
-			fmt.Println("Invalid input. Please press 1 or 2.")
+		default:
+			fmt.Println("Invalid input. Choose number between 1 and 5")
 		}
 	}
 
 	fmt.Println("Exiting the program. Goodbye!")
+}
+
+func viewTasks(list []string) {
+	if len(list) == 0 {
+		fmt.Println("No items in list")
+	} else {
+		for _, item := range list {
+			fmt.Printf("%s\n", item)
+		}
+	}
+}
+
+func createTask(list []string) []string {
+	fmt.Println("Enter the new task:")
+	userData, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+	results := strings.TrimSuffix(userData, "\n")
+	return append(list, results)
+}
+func updateTask(list []string) {
+	// pass
+}
+func deleteTask(list []string) {
+	//pass
 }
