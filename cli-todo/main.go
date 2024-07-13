@@ -28,8 +28,8 @@ func main() {
 			taskList = createTask(taskList)
 		case 3:
 			updateTask(taskList)
-		case 4:
-			deleteTask(taskList)
+		// case 4:
+		// 	deleteTask(taskList)
 		case 5:
 			status = false
 		default:
@@ -70,6 +70,7 @@ func updateTask(list []string) {
 		list[userData-1] = results
 	}
 }
-func deleteTask(list []string) {
-	//pass
-}
+
+// func deleteTask(list []string) {
+// 	//pass
+// }
